@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - develop
-env:
-  ES_HTTP_PORT: 9209
 jobs:
   symfony:
     name: Symfony 6.2 (PHP ${{ matrix.php-versions }})
@@ -71,5 +69,4 @@ jobs:
       # We use the dev env here
       - name: Run functional and unit tests
         run: |
-          cp phpunit.xml.ci phpunit.xml
           make test-all

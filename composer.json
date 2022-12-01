@@ -1,4 +1,6 @@
 {
+    "name": "rherault/advent-of-code",
+    "description": "Advent of Code 2022",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -64,6 +66,7 @@
         }
     },
     "require-dev": {
+        "roave/security-advisories": "dev-latest",
         "friendsofphp/php-cs-fixer": "^3.13",
         "phpmetrics/phpmetrics": "^2.8",
         "phpstan/extension-installer": "^1.2",

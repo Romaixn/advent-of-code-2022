@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class DayOneControllerTest extends WebTestCase
 {
-    public function testSomething(): void
+    public function testControllerIsOk(): void
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/day/1');

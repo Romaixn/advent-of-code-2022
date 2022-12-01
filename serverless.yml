@@ -1,0 +1,43 @@
+service: advent-of-code
+
+provider:
+    name: aws
+    region: eu-west-3
+    runtime: provided.al2
+    environment:
+        APP_ENV: prod
+
+plugins:
+    - ./vendor/bref/bref
+    - serverless-lift
+
+functions:
+    api:
+        handler: public/index.php
+        description: ''
+        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
+        layers:
+            - ${bref:layer.php-81-fpm}
+        events:
+            -   httpApi: '*'
+
+constructs:
+    website:
+        type: server-side-website
+        assets:
+            '/build/*': public/build
+
+# Exclude files from deployment
+package:
+    patterns:
+        # Excluded files and folders for deployment
+        - '!assets/**'
+        - '!node_modules/**'
+        - '!public/build/**'
+        - '!tests/**'
+        - '!var/**'
+        # If you want to include files and folders that are part of excluded folders,
+        # add them at the end
+        - 'var/cache/prod/**'
+        - 'public/build/entrypoints.json'
+        - 'public/build/manifest.json'

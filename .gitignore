@@ -9,11 +9,6 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
@@ -23,3 +18,14 @@
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+###> bref/symfony-bridge ###
+/.serverless/
+###< bref/symfony-bridge ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###

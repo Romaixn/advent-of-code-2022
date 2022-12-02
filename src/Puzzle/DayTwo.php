@@ -6,43 +6,47 @@ namespace App\Puzzle;
 
 final class DayTwo
 {
-    public const ROCK_PLAY = 'A';
-    public const PAPER_PLAY = 'B';
-    public const SCISSORS_PLAY = 'C';
+    private const ROCK_PLAY = 'A';
+    private const PAPER_PLAY = 'B';
+    private const SCISSORS_PLAY = 'C';
 
-    public const ROCK_TO_PLAY = 'X';
-    public const PAPER_TO_PLAY = 'Y';
-    public const SCISSORS_TO_PLAY = 'Z';
+    private const ROCK_TO_PLAY = 'X';
+    private const PAPER_TO_PLAY = 'Y';
+    private const SCISSORS_TO_PLAY = 'Z';
 
-    public const MOVE_POINTS = [
+    private const MOVE_POINTS = [
         self::ROCK_TO_PLAY => 1,
         self::PAPER_TO_PLAY => 2,
         self::SCISSORS_TO_PLAY => 3,
     ];
 
-    public const MOVE_WIN = [
+    private const MOVE_WIN = [
         self::ROCK_TO_PLAY => 'lose',
         self::PAPER_TO_PLAY => 'draw',
         self::SCISSORS_TO_PLAY => 'win',
     ];
 
-    public const WIN = [
+    private const WIN = [
         self::ROCK_PLAY => self::PAPER_TO_PLAY,
         self::PAPER_PLAY => self::SCISSORS_TO_PLAY,
         self::SCISSORS_PLAY => self::ROCK_TO_PLAY,
     ];
 
-    public const DRAW = [
+    private const DRAW = [
         self::ROCK_PLAY => self::ROCK_TO_PLAY,
         self::PAPER_PLAY => self::PAPER_TO_PLAY,
         self::SCISSORS_PLAY => self::SCISSORS_TO_PLAY,
     ];
 
-    public const LOSE = [
+    private const LOSE = [
         self::ROCK_PLAY => self::SCISSORS_TO_PLAY,
         self::PAPER_PLAY => self::ROCK_TO_PLAY,
         self::SCISSORS_PLAY => self::PAPER_TO_PLAY,
     ];
+
+    private const WIN_POINTS = 6;
+    private const DRAW_POINTS = 3;
+    private const LOSE_POINTS = 0;
 
     public function __construct(private readonly string $input)
     {
@@ -81,13 +85,13 @@ final class DayTwo
 
         if (self::MOVE_WIN[$strategy['to_play']] === 'win') {
             $move = self::WIN[$strategy['play']];
-            $points += self::MOVE_POINTS[$move] + 6;
+            $points += self::MOVE_POINTS[$move] + self::WIN_POINTS;
         } elseif (self::MOVE_WIN[$strategy['to_play']] === 'draw') {
             $move = self::DRAW[$strategy['play']];
-            $points += self::MOVE_POINTS[$move] + 3;
+            $points += self::MOVE_POINTS[$move] + self::DRAW_POINTS;
         } elseif (self::MOVE_WIN[$strategy['to_play']] === 'lose') {
             $move = self::LOSE[$strategy['play']];
-            $points += self::MOVE_POINTS[$move] + 0;
+            $points += self::MOVE_POINTS[$move] + self::LOSE_POINTS;
         }
 
         return $points;
@@ -103,11 +107,11 @@ final class DayTwo
         $points += self::MOVE_POINTS[$strategy['to_play']];
 
         if (self::WIN[$strategy['play']] === $strategy['to_play']) {
-            $points += 6;
+            $points += self::WIN_POINTS;
         } elseif (self::DRAW[$strategy['play']] === $strategy['to_play']) {
-            $points += 3;
+            $points += self::DRAW_POINTS;
         } elseif (self::LOSE[$strategy['play']] === $strategy['to_play']) {
-            $points += 0;
+            $points += self::LOSE_POINTS;
         }
 
         return $points;

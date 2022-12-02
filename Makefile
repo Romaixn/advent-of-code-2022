@@ -12,6 +12,7 @@ HTTP_PORT     = 8000
 EXEC_PHP      = php
 COMPOSER      = composer
 GIT           = git
+NPM           = npm
 
 # Alias
 SYMFONY       = $(EXEC_PHP) bin/console
@@ -99,6 +100,17 @@ lint-php: ## Lint files with php-cs-fixer
 
 fix-php: ## Fix files with php-cs-fixer
 	@$(PHP_CS_FIXER) fix --allow-risky=yes
+
+## —— Yarn 🐱 / JavaScript —————————————————————————————————————————————————————
+dev: ## Rebuild assets for the dev env
+	@$(NPM) install --check-files
+	@$(NPM) run dev
+
+watch: ## Watch files and build assets when needed for the dev env
+	@$(NPM) run watch
+
+encore: ## Build assets for production
+	@$(NPM) run build
 
 ## —— Code Quality reports 📊 ——————————————————————————————————————————————————
 report-metrics: ## Run the phpmetrics report

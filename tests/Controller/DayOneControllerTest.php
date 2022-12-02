@@ -14,7 +14,7 @@ class DayOneControllerTest extends WebTestCase
         $client->request('GET', '/day/1');
 
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('p:first-of-type', 'Result: 71,023 Calories');
-        self::assertSelectorTextContains('p:last-of-type', 'Result: 206,289 Calories');
+        self::assertSelectorTextContains('p.part-one', 'Result: 71,023 Calories');
+        self::assertSelectorTextContains('p.part-two', 'Result: 206,289 Calories');
     }
 }

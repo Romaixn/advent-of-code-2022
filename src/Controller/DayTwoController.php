@@ -14,7 +14,7 @@ final class DayTwoController extends AbstractController
     #[Route('/day/2', name: 'day_two')]
     public function index(DayTwo $dayTwo): Response
     {
-        return $this->render('puzzle/day_two.twig', [
+        return $this->render('puzzle/day_two.html.twig', [
             'part_one' => $dayTwo->partOne(),
             'part_two' => $dayTwo->partTwo(),
         ]);

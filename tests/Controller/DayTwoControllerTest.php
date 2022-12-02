@@ -14,7 +14,7 @@ class DayTwoControllerTest extends WebTestCase
         $client->request('GET', '/day/2');
 
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('p:first-of-type', 'Result: 15,422 points.');
-        self::assertSelectorTextContains('p:last-of-type', 'Result: 15,442 points.');
+        self::assertSelectorTextContains('p.part-one', 'Result: 15,422 points.');
+        self::assertSelectorTextContains('p.part-two', 'Result: 15,442 points.');
     }
 }

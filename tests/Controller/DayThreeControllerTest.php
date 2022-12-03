@@ -15,6 +15,6 @@ class DayThreeControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
         self::assertSelectorTextContains('p.part-one', 'Result: 8,088.');
-//        self::assertSelectorTextContains('p.part-two', 'Result: 15,442 points.');
+        self::assertSelectorTextContains('p.part-two', 'Result: 2,522.');
     }
 }

@@ -19,4 +19,15 @@ class DayThreeTest extends KernelTestCase
 
         $this->assertEquals(8088, $dayThree->partOne());
     }
+
+    public function testPartTwo(): void
+    {
+        self::bootKernel();
+
+        $container = static::getContainer();
+
+        $dayThree = $container->get(DayThree::class);
+
+        $this->assertEquals(2522, $dayThree->partTwo());
+    }
 }

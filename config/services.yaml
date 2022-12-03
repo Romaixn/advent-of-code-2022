@@ -30,3 +30,7 @@ services:
     App\Puzzle\DayTwo:
         bind:
             $input: '%kernel.project_dir%/public/data/day2.txt'
+
+    App\Puzzle\DayThree:
+        bind:
+            $input: '%kernel.project_dir%/public/data/day3.txt'

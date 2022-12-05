@@ -15,6 +15,6 @@ class DayFourControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
         self::assertSelectorTextContains('p.part-one', 'Result: 483.');
-//        self::assertSelectorTextContains('p.part-two', 'Result: 2,522.');
+        self::assertSelectorTextContains('p.part-two', 'Result: 874.');
     }
 }

@@ -15,7 +15,6 @@ final class DayFour
     public function partOne(): int
     {
         $pairs = $this->fileToArray->convertFileToArray($this->input);
-        $assignments = [];
         $numberPairsWithSameAssignment = 0;
 
         foreach ($pairs as $pair) {
@@ -43,6 +42,29 @@ final class DayFour
 
     public function partTwo(): int
     {
-        return 0;
+        $pairs = $this->fileToArray->convertFileToArray($this->input);
+        $numberPairsWithSameAssignment = 0;
+
+        foreach ($pairs as $pair) {
+            $pair = explode(',', $pair);
+            $group1 = explode('-', $pair[0]);
+            $group2 = explode('-', $pair[1]);
+            $group1 = range($group1[0], $group1[1]);
+            $group2 = range($group2[0], $group2[1]);
+
+            $sameAssignments = array_intersect($group1, $group2);
+
+            if (!empty($sameAssignments)) {
+                ++$numberPairsWithSameAssignment;
+            } else {
+                $sameAssignments = array_intersect($group2, $group1);
+
+                if (!empty($sameAssignments)) {
+                    ++$numberPairsWithSameAssignment;
+                }
+            }
+        }
+
+        return $numberPairsWithSameAssignment;
     }
 }

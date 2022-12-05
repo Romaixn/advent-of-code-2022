@@ -23,6 +23,14 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    App\Service\InputFetcher:
+        arguments:
+            $cookie: '%env(AOC_COOKIE)%'
+
+    App\Command\AocSubmitCommand:
+        arguments:
+            $cookie: '%env(AOC_COOKIE)%'
+
     App\Puzzle\DayOne:
         bind:
             $input: '%kernel.project_dir%/public/data/day1.txt'
@@ -38,7 +46,3 @@ services:
     App\Puzzle\DayFour:
         bind:
             $input: '%kernel.project_dir%/public/data/day4.txt'
-
-    App\Puzzle\DayFive:
-        bind:
-            $input: '%kernel.project_dir%/public/data/day5.txt'

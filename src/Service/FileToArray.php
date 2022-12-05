@@ -9,7 +9,7 @@ final class FileToArray
     /**
      * @return array<int, string>
      */
-    public function convertFileToArray(string $input): array
+    public function convert(string $input): array
     {
         $file = file($input);
         $array = [];

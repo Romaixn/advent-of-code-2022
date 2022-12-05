@@ -6,6 +6,7 @@ provider:
     runtime: provided.al2
     environment:
         APP_ENV: prod
+        AOC_COOKIE: ${ssm:AOC_COOKIE}
 
 plugins:
     - ./vendor/bref/bref

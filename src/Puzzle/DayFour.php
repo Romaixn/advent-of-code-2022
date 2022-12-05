@@ -14,7 +14,7 @@ final class DayFour
 
     public function partOne(): int
     {
-        $pairs = $this->fileToArray->convertFileToArray($this->input);
+        $pairs = $this->fileToArray->convert($this->input);
         $numberPairsWithSameAssignment = 0;
 
         foreach ($pairs as $pair) {
@@ -42,7 +42,7 @@ final class DayFour
 
     public function partTwo(): int
     {
-        $pairs = $this->fileToArray->convertFileToArray($this->input);
+        $pairs = $this->fileToArray->convert($this->input);
         $numberPairsWithSameAssignment = 0;
 
         foreach ($pairs as $pair) {

@@ -14,11 +14,11 @@
             <ul role="list" class="divide-y divide-gray-300">
                 <li class="px-6 py-4">
                     <h2 class="text-lg">Part one.</h2>
-                    <p class="part-one">Result: {{ part_one != 0 ? part_one|number_format : 'TODO' }}.</p>
+                    <p class="part-one">Result: {{ part_one != 0 ? part_one : 'TODO' }}.</p>
                 </li>
                 <li class="px-6 py-4">
                     <h2 class="text-lg">Part Two.</h2>
-                    <p class="part-two">Result: {{ part_two != 0 ? part_two|number_format : 'TODO' }}.</p>
+                    <p class="part-two">Result: {{ part_two != 0 ? part_two : 'TODO' }}.</p>
                 </li>
             </ul>
         </div>

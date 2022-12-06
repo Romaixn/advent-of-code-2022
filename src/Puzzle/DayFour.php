@@ -56,12 +56,6 @@ final class DayFour
 
             if (!empty($sameAssignments)) {
                 ++$numberPairsWithSameAssignment;
-            } else {
-                $sameAssignments = array_intersect($group2, $group1);
-
-                if (!empty($sameAssignments)) {
-                    ++$numberPairsWithSameAssignment;
-                }
             }
         }
 

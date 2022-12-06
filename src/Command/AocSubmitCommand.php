@@ -77,7 +77,7 @@ class AocSubmitCommand extends Command
             $input->setArgument('level', $level);
         }
 
-        /** @var int|null $answer */
+        /** @var int|string|null $answer */
         $answer = $input->getArgument('answer');
         if (null !== $answer) {
             $this->io->text(' > <info>Answer</info>: '.$answer);
@@ -92,7 +92,7 @@ class AocSubmitCommand extends Command
         $io = new SymfonyStyle($input, $output);
         /** @var int $day */
         $day = $input->getArgument('day');
-        /** @var int $answer */
+        /** @var int|string $answer */
         $answer = $input->getArgument('answer');
         /** @var int $year */
         $year = $input->getArgument('year');

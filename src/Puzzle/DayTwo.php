@@ -124,7 +124,7 @@ final class DayTwo
     {
         /** @var string $fileContent */
         $fileContent = file_get_contents($this->input);
-        $arrayLines = explode("\n", $fileContent);
+        $arrayLines = explode(PHP_EOL, $fileContent);
         $strategyGuide = [];
 
         foreach ($arrayLines as $line) {

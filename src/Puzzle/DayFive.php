@@ -35,9 +35,27 @@ final class DayFive
         return implode('', $topStacks);
     }
 
-    public function partTwo(): int
+    public function partTwo(): string
     {
-        return 0;
+        $input = $this->inputFetcher->fetch(5);
+        $startingStacks = $this->getStartingStacksFromInput($input);
+        $startingStacks = $this->transformStartingStacksToArray($startingStacks);
+
+        $instructions = $this->getInstructionsFromInput($input);
+
+        foreach ($instructions as $instruction) {
+            // $actions[0] = total to move, $actions[1] = from, $actions[2] = to
+            $actions = [];
+            preg_match_all('!\d+!', $instruction, $actions);
+
+            $poppedArray = $this->moveMultipleAtOnce($startingStacks[$actions[0][1] - 1], (int) $actions[0][0]);
+            $startingStacks[$actions[0][2] - 1] = array_merge($poppedArray[1], $startingStacks[$actions[0][2] - 1]);
+            $startingStacks[$actions[0][1] - 1] = $poppedArray[0];
+        }
+
+        $topStacks = $this->getTopOfStack($startingStacks);
+
+        return implode('', $topStacks);
     }
 
     /**
@@ -118,7 +136,7 @@ final class DayFive
     /**
      * @param array<int, array<int, string>> $stack
      *
-     * @return array<int, string>
+     * @return array<int, string|null>
      */
     private function getTopOfStack(array $stack): array
     {
@@ -129,5 +147,18 @@ final class DayFive
         }
 
         return $top;
+    }
+
+    /**
+     * @param array<int, string> $array
+     *
+     * @return array{array<int, string>, array<int, string>}
+     */
+    private function moveMultipleAtOnce(array $array, int $number): array
+    {
+        $popped = \array_slice($array, $number);
+        $array = \array_slice($array, 0, $number);
+
+        return [$popped, $array];
     }
 }

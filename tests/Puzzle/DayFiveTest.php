@@ -19,4 +19,15 @@ class DayFiveTest extends KernelTestCase
 
         $this->assertEquals('RTGWZTHLD', $dayFive->partOne());
     }
+
+    public function testPartTwo(): void
+    {
+        self::bootKernel();
+
+        $container = static::getContainer();
+
+        $dayFive = $container->get(DayFive::class);
+
+        $this->assertEquals('STHGRZZFR', $dayFive->partTwo());
+    }
 }

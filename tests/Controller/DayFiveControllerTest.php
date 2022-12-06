@@ -15,6 +15,6 @@ class DayFiveControllerTest extends WebTestCase
 
         self::assertResponseIsSuccessful();
         self::assertSelectorTextContains('p.part-one', 'Result: RTGWZTHLD.');
-//        self::assertSelectorTextContains('p.part-two', 'Result: 874.');
+        self::assertSelectorTextContains('p.part-two', 'Result: STHGRZZFR.');
     }
 }

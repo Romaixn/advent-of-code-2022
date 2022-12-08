@@ -14,8 +14,20 @@ final class DayEight
 
     public function partOne(): int
     {
-        $input = $this->inputFetcher->fetch(8);
-        dump($input);
+        $treeMap = $this->inputFetcher->fetch(8);
+        $treeMap = "30373\n25512\n65332\n33549\n35390";
+        $treeMap = explode(PHP_EOL, $treeMap);
+
+        $matrix = [];
+        $i = 0;
+        foreach ($treeMap as $treeLine) {
+            $treeLine = str_split($treeLine);
+            $matrix[$i] = $treeLine;
+
+            ++$i;
+        }
+
+        dump($matrix);
 
         return 0;
     }

@@ -13,3 +13,6 @@ parameters:
     # https://phpstan.org/config-reference#vague-typehints
     checkMissingIterableValueType:           true # https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type
     checkGenericClassInNonGenericObjectType: true # this parameter is activated at level 6
+
+    excludePaths:
+        - src/Puzzle/DaySeven.php
